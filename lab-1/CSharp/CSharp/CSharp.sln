@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Interop", "..\Interop\Interop\Interop.csproj", "{33AFAB27-E0BF-43CF-8F8D-4A193BFB2F67}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Farsh", "..\Farsh\Farsh\Farsh.fsproj", "{FABBAB50-6078-47EE-B393-F857AB933C4B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UseFarsh", "..\UseFarsh\UseFarsh\UseFarsh.csproj", "{0E7C0DF6-54F8-4152-B9D1-C4558C4A670C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{33AFAB27-E0BF-43CF-8F8D-4A193BFB2F67}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{33AFAB27-E0BF-43CF-8F8D-4A193BFB2F67}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{33AFAB27-E0BF-43CF-8F8D-4A193BFB2F67}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{33AFAB27-E0BF-43CF-8F8D-4A193BFB2F67}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FABBAB50-6078-47EE-B393-F857AB933C4B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FABBAB50-6078-47EE-B393-F857AB933C4B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FABBAB50-6078-47EE-B393-F857AB933C4B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FABBAB50-6078-47EE-B393-F857AB933C4B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0E7C0DF6-54F8-4152-B9D1-C4558C4A670C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0E7C0DF6-54F8-4152-B9D1-C4558C4A670C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0E7C0DF6-54F8-4152-B9D1-C4558C4A670C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0E7C0DF6-54F8-4152-B9D1-C4558C4A670C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
