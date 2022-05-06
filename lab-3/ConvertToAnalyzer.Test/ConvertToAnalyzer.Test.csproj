@@ -1,0 +1,33 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+        <Nullable>enable</Nullable>
+
+        <IsPackable>false</IsPackable>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.11.0"/>
+        <PackageReference Include="MSTest.TestAdapter" Version="2.2.7"/>
+        <PackageReference Include="MSTest.TestFramework" Version="2.2.7"/>
+        <PackageReference Include="coverlet.collector" Version="3.1.0"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\AnalyzerTest\AnalyzerTest.csproj"/>
+        <ProjectReference Include="..\ConvertToAnalyzer\ConvertToAnalyzer.csproj"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <Compile Remove="Data\Input1.cs"/>
+        <Resource Include="Data\Input1.cs">
+            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </Resource>
+        <Compile Remove="Data\Output1.cs"/>
+        <Resource Include="Data\Output1.cs">
+            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </Resource>
+    </ItemGroup>
+
+</Project>
