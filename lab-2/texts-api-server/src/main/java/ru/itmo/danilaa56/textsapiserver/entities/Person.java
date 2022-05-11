@@ -1,13 +1,13 @@
-package ru.itmo.danilaa56.textsapiserver.models;
+package ru.itmo.danilaa56.textsapiserver.entities;
 
-public class Person {
-    public final String name;
-    public final String surname;
+public record Person(String name, String surname) {
+    @Override
+    public String name() {
+        return name;
+    }
 
-    public Person(String name, String surname) {
-        if (name == null || surname == null)
-            throw new NullPointerException();
-        this.name = name;
-        this.surname = surname;
+    @Override
+    public String surname() {
+        return surname;
     }
 }
