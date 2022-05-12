@@ -1,10 +1,8 @@
 package ru.itmo.danilaa56.textsapiserver;
 
-import org.springframework.lang.NonNull;
-import org.springframework.lang.NonNullApi;
 import org.springframework.stereotype.Service;
-import ru.itmo.danilaa56.textsapiserver.entities.Text;
 import ru.itmo.danilaa56.textsapiserver.entities.Person;
+import ru.itmo.danilaa56.textsapiserver.entities.Text;
 
 import java.util.Collection;
 import java.util.Date;
@@ -15,7 +13,7 @@ import java.util.UUID;
 @Service
 public class TextService {
 
-    private Map<UUID, Text> texts = new LinkedHashMap<>();
+    private final Map<UUID, Text> texts = new LinkedHashMap<>();
 
     public TextService() {
         Person author = new Person("Ivan", "Whatshisname");
