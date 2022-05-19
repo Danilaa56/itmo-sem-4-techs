@@ -9,10 +9,12 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import ru.itmo.danilaa56.textsapiserver.TextService;
+import ru.itmo.danilaa56.textsapiserver.entities.Coil;
 import ru.itmo.danilaa56.textsapiserver.entities.Text;
 import ru.itmo.danilaa56.textsapiserver.utils.TextsException;
 
 import java.util.Collection;
+import java.util.List;
 import java.util.UUID;
 
 @RestController
@@ -23,6 +25,11 @@ public class TextController {
 
     public TextController(TextService textService) {
         this.textService = textService;
+    }
+
+    @GetMapping("coil")
+    public Coil coil() {
+        return new Coil(List.of(List.of(List.of(List.of(List.of(List.of(List.of(List.of(14)))))))));
     }
 
     @GetMapping
