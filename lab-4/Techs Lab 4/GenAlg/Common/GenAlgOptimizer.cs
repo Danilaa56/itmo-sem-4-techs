@@ -25,6 +25,7 @@ public class GenAlgOptimizer
         var maxPossibleFitness = population.MaxPossibleFitness;
 
         var generation = 0;
+        stats.Add(new GenAlgStats(generation, population.GetStats()));
         while (
             population.GetStats().MaxFitness < maxPossibleFitness &&
             generation < _maxGenerations)

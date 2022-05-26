@@ -7,7 +7,7 @@ public static class Program
 {
     public static readonly Random Random = new(56);
 
-    public const int GenomeLength = 100;
+    public const int GenomeLength = 1000;
     private const int PopulationSize = 200;
     private const int MaxGenerations = 50;
     private const double CrossoverP = 0.9;
