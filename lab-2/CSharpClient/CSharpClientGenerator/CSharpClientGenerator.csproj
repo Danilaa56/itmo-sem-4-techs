@@ -10,10 +10,6 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <PackageReference Include="Antlr4" Version="4.6.6">
-        <PrivateAssets>all</PrivateAssets>
-        <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-      </PackageReference>
       <PackageReference Include="Antlr4.Runtime.Standard" Version="4.10.1" />
       <PackageReference Include="Microsoft.CodeAnalysis.Analyzers" Version="3.3.4-beta1.22217.1">
         <PrivateAssets>all</PrivateAssets>
@@ -43,8 +39,6 @@
       <Content Include="..\..\texts-api-server\src\main\java\ru\itmo\danilaa56\textsapiserver\utils\TextsException.java">
         <Link>java\ru\itmo\danilaa56\textsapiserver\utils\TextsException.java</Link>
       </Content>
-      <Content Include="ANTLR Stuff\JavaLexer.g4" />
-      <Content Include="ANTLR Stuff\JavaParser.g4" />
     </ItemGroup>
 
 </Project>
