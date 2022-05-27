@@ -11,8 +11,7 @@ public class Genome : IGenome<Genome>
 
     public Genome()
     {
-        ActionsSequence = ArrayPool<GenomeAction>.Shared.Rent(GenesLength);;
-        // ActionsSequence = new GenomeAction[GenesLength];
+        ActionsSequence = ArrayPool<GenomeAction>.Shared.Rent(GenesLength);
         for (var i = 0; i < GenesLength; i++)
         {
             ActionsSequence[i] = (GenomeAction)Program.Random.Next(5);
@@ -21,12 +20,11 @@ public class Genome : IGenome<Genome>
 
     public Genome(GenomeAction[] actions)
     {
-        ActionsSequence = actions.ToArray();
-        // ActionsSequence = ArrayPool<GenomeAction>.Shared.Rent(GenesLength);
-        // for (var i = 0; i < GenesLength; i++)
-        // {
-        //     ActionsSequence[i] = actions[i];
-        // }
+        ActionsSequence = ArrayPool<GenomeAction>.Shared.Rent(GenesLength);
+        for (var i = 0; i < GenesLength; i++)
+        {
+            ActionsSequence[i] = actions[i];
+        }
     }
 
     public Genome Clone()
