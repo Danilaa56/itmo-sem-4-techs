@@ -10,7 +10,7 @@ public class Population<TGenome, TFitnessCalculator>
 
     private PopulationStats? _stats;
     private TGenome? _best;
-    private readonly int _size;
+    private int _size;
 
     public Population(Random random, int size)
         : this(random, size, new TFitnessCalculator())
@@ -24,7 +24,6 @@ public class Population<TGenome, TFitnessCalculator>
         _genomes = new TGenome[size];
         _size = size;
         for (var i = 0; i < size; i++)
-            // _genomes.Add(new TGenome());
             _genomes[i] = new TGenome();
     }
 
@@ -37,8 +36,7 @@ public class Population<TGenome, TFitnessCalculator>
     {
         _stats = null;
         var oldGen = _genomes;
-        // _genomes = new List<TGenome>(size);
-        _genomes = new TGenome[_size];
+        _genomes = new TGenome[size];
         for (var i = 0; i < size; i++)
         {
             int i1 = 0, i2 = 0, i3 = 0;
@@ -49,59 +47,53 @@ public class Population<TGenome, TFitnessCalculator>
                 i3 = _random.Next(_size);
             }
 
-            var triple = new[]
-            {
-                oldGen[i1],
-                oldGen[i2],
-                oldGen[i3]
-            };
+            var f1 = _fitnessCalculator.Calculate(oldGen[i1]);
+            var f2 = _fitnessCalculator.Calculate(oldGen[i2]);
+            var f3 = _fitnessCalculator.Calculate(oldGen[i3]);
 
-            _genomes[i] = triple
-                .MaxBy(genome => _fitnessCalculator.Calculate(genome))!
-                .Clone();
+            if (f1 > f2)
+            {
+                if (f1 > f3)
+                    _genomes[i] = oldGen[i1];
+                else if (f2 > f3)
+                    _genomes[i] = oldGen[i2];
+                else
+                    _genomes[i] = oldGen[i3];
+            }
+            else if (f2 > f3)
+                _genomes[i] = oldGen[i2];
+            else
+                _genomes[i] = oldGen[i3];
         }
+
+        for (var i = 0; i < _size; i++)
+        {
+            oldGen[i].Dispose();
+        }
+
+        _size = size;
     }
 
     public void Crossover(double crossoverChance)
     {
         _stats = null;
 
-        // var oldGen = _genomes;
-        // _genomes = new List<TGenome>(_genomes.Count);
-
         for (var i = 1; i < _size; i += 2)
         {
             if (_random.NextDouble() < crossoverChance)
             {
                 var children = _genomes[i - 1].Cross( _genomes[i]);
-                // _genomes.Add(children.Item1);
-                // _genomes.Add(children.Item2);
                 _genomes[i - 1] = children.Item1;
                 _genomes[i] = children.Item2;
             }
-            // else
-            // {
-            //     _genomes.Add(oldGen[i - 1]);
-            //     _genomes.Add(oldGen[i]);
-            // }
         }
-
-        // if (oldGen.Count % 2 == 1)
-        // {
-        //     _genomes.Add(oldGen.Last());
-        // }
     }
 
     public void Mutate(double mutationChance)
     {
         _stats = null;
-
-        // var oldGen = _genomes;
-        // _genomes = new List<TGenome>(_genomes.Count);
-
         for (var i = 0; i < _size; i++)
         {
-            // _genomes.Add( ? oldGenome.Mutate() : oldGenome);
             if (_random.NextDouble() < mutationChance)
                 _genomes[i] = _genomes[i].Mutate();
         }
@@ -114,8 +106,9 @@ public class Population<TGenome, TFitnessCalculator>
         var maxFitness = double.MinValue;
         var minFitness = double.MaxValue;
         var fitnessSum = 0d;
-        foreach (var genome in _genomes)
+        for (var i = 0; i < _size; i++)
         {
+            var genome = _genomes[i];
             var fitness = _fitnessCalculator.Calculate(genome);
             if (maxFitness < fitness)
             {
