@@ -1,54 +1,13 @@
-﻿operation = sleep(1) + return
-|                   Method |                Mean | Error |          StdDev |
-|------------------------- |--------------------:|------:|----------------:|
-|              JustIterate |            909.6 ns |    NA |        106.9 ns |
-|          MultiplyIterate | 15,612,854,400.0 ns |    NA | 34,557,581.2 ns |
-|         MultiplyIterate2 | 31,170,163,050.0 ns |    NA | 36,369,683.7 ns |
-|         MultiplyIterate3 | 46,776,281,050.0 ns |    NA | 11,325,658.6 ns |
-|  MultiplyIterateParallel |  1,939,473,600.0 ns |    NA |  1,179,878.4 ns |
-| MultiplyIterateParallel2 |  3,882,481,350.0 ns |    NA |  5,308,604.2 ns |
-| MultiplyIterateParallel3 |  5,834,132,500.0 ns |    NA |  8,167,931.9 ns |
+﻿Intel64 Family 6 Model 142 Stepping 10, GenuineIntel
+Logical processors count: 8
+For loop:             7942 ms
+Sequence LINQ:        6875 ms
+AsParallel LINQ:      3241 ms
+AsParallelCollection: 2883 ms
 
-operation = return
-|                   Method |        Mean | Error |      StdDev |
-|------------------------- |------------:|------:|------------:|
-|              JustIterate |    776.8 ns |    NA |    13.99 ns |
-|          MultiplyIterate |  3,869.1 ns |    NA |    83.84 ns |
-|         MultiplyIterate2 |  6,572.5 ns |    NA |   208.28 ns |
-|         MultiplyIterate3 |  9,409.4 ns |    NA |   534.11 ns |
-|  MultiplyIterateParallel | 80,752.0 ns |    NA | 6,279.56 ns |
-| MultiplyIterateParallel2 | 95,979.0 ns |    NA | 1,270.29 ns |
-| MultiplyIterateParallel3 | 95,286.8 ns |    NA | 4,120.94 ns |
-
-operation = for 1000
-|                   Method |         Mean | Error |       StdDev |
-|------------------------- |-------------:|------:|-------------:|
-|              JustIterate |     736.1 ns |    NA |     25.17 ns |
-|          MultiplyIterate | 312,287.1 ns |    NA | 13,854.42 ns |
-|         MultiplyIterate2 | 623,859.0 ns |    NA | 35,791.00 ns |
-|         MultiplyIterate3 | 870,495.9 ns |    NA |  2,672.37 ns |
-|  MultiplyIterateParallel | 244,488.3 ns |    NA |  1,260.47 ns |
-| MultiplyIterateParallel2 | 380,780.2 ns |    NA | 14,500.49 ns |
-| MultiplyIterateParallel3 | 499,533.5 ns |    NA |  7,075.28 ns |
-
-operation = for 100.000
-|                   Method |            Mean | Error |          StdDev |
-|------------------------- |----------------:|------:|----------------:|
-|              JustIterate |        686.3 ns |    NA |        27.87 ns |
-|          MultiplyIterate | 29,486,445.3 ns |    NA |   788,430.69 ns |
-|         MultiplyIterate2 | 73,411,272.2 ns |    NA | 1,599,216.27 ns |
-|         MultiplyIterate3 | 84,294,990.0 ns |    NA |   600,178.09 ns |
-|  MultiplyIterateParallel | 10,945,226.6 ns |    NA |   542,571.87 ns |
-| MultiplyIterateParallel2 | 20,498,062.5 ns |    NA |    12,652.79 ns |
-| MultiplyIterateParallel3 | 31,079,725.0 ns |    NA |   304,550.89 ns |
-
-operation = for 1.000.000
-|                   Method |             Mean | Error |           StdDev |
-|------------------------- |-----------------:|------:|-----------------:|
-|              JustIterate |         880.7 ns |    NA |         21.05 ns |
-|          MultiplyIterate | 302,468,800.0 ns |    NA | 20,326,137.98 ns |
-|         MultiplyIterate2 | 574,558,600.0 ns |    NA |  4,054,550.28 ns |
-|         MultiplyIterate3 | 873,148,050.0 ns |    NA | 23,094,743.87 ns |
-|  MultiplyIterateParallel | 101,455,600.0 ns |    NA |  1,914,397.33 ns |
-| MultiplyIterateParallel2 | 200,660,400.0 ns |    NA | 11,163,519.02 ns |
-| MultiplyIterateParallel3 | 299,528,300.0 ns |    NA |  2,840,872.20 ns |
+AMD64 Family 23 Model 113 Stepping 0, AuthenticAMD
+Logical processors count: 12
+For loop:             3859 ms
+Sequence LINQ:        3883 ms
+AsParallel LINQ:      767 ms
+AsParallelCollection: 705 ms

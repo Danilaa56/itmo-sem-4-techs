@@ -2,7 +2,7 @@
 
 public class ParallelCollection<TSource>
 {
-    private List<TSource> _storage;
+    private readonly List<TSource> _storage;
 
     public ParallelCollection(IEnumerable<TSource> enumerable)
     {
@@ -11,7 +11,7 @@ public class ParallelCollection<TSource>
 
     public ParallelCollection<TResult> Select<TResult>(Func<TSource, TResult> mapper)
     {
-        var list = new List<TResult>();
+        var list = new List<TResult>(_storage.Capacity);
         ProcessParallel(src =>
         {
             var res = mapper(src!);
@@ -54,7 +54,7 @@ public class ParallelCollection<TSource>
     public bool Any(Func<TSource, bool> predicate)
     {
         var continueResearch = true;
-        var enumerator = new NotSuitableConcurrentEnumerator<TSource>(_storage.GetEnumerator());
+        var enumerator = new ConcurrentEnumerator<TSource>(_storage.GetEnumerator());
         DoParallel(Environment.ProcessorCount, () =>
         {
             while (enumerator.TryMoveNext(out var src) && continueResearch)
@@ -69,7 +69,7 @@ public class ParallelCollection<TSource>
     public bool All(Func<TSource, bool> predicate)
     {
         var continueResearch = true;
-        var enumerator = new NotSuitableConcurrentEnumerator<TSource>(_storage.GetEnumerator());
+        var enumerator = new ConcurrentEnumerator<TSource>(_storage.GetEnumerator());
         DoParallel(Environment.ProcessorCount, () =>
         {
             while (enumerator.TryMoveNext(out var src) && continueResearch)
@@ -88,7 +88,7 @@ public class ParallelCollection<TSource>
 
     private void ProcessParallel(Action<TSource> action)
     {
-        var enumerator = new NotSuitableConcurrentEnumerator<TSource>(_storage.GetEnumerator());
+        var enumerator = new ConcurrentEnumerator<TSource>(_storage.GetEnumerator());
         DoParallel(Environment.ProcessorCount, () =>
         {
             while (enumerator.TryMoveNext(out var dest))

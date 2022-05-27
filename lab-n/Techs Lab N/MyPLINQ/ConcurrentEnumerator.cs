@@ -1,10 +1,10 @@
 ﻿namespace MyPLINQ;
 
-public class NotSuitableConcurrentEnumerator<TSource>
+public class ConcurrentEnumerator<TSource>
 {
-    private IEnumerator<TSource> _enumerator;
+    private readonly IEnumerator<TSource> _enumerator;
 
-    public NotSuitableConcurrentEnumerator(IEnumerator<TSource> enumerator)
+    public ConcurrentEnumerator(IEnumerator<TSource> enumerator)
     {
         _enumerator = enumerator;
     }
