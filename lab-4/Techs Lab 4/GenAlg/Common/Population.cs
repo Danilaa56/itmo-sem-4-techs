@@ -60,10 +60,15 @@ public class Population<TGenome, TFitnessCalculator>
                 else
                     _genomes[i] = oldGen[i3];
             }
-            else if (f2 > f3)
-                _genomes[i] = oldGen[i2];
             else
-                _genomes[i] = oldGen[i3];
+            {
+                if (f2 > f3)
+                    _genomes[i] = oldGen[i2];
+                else
+                    _genomes[i] = oldGen[i3];
+            }
+
+            _genomes[i] = _genomes[i].Clone();
         }
 
         for (var i = 0; i < _size; i++)
@@ -82,7 +87,7 @@ public class Population<TGenome, TFitnessCalculator>
         {
             if (_random.NextDouble() < crossoverChance)
             {
-                var children = _genomes[i - 1].Cross( _genomes[i]);
+                var children = _genomes[i - 1].Cross(_genomes[i]);
                 _genomes[i - 1] = children.Item1;
                 _genomes[i] = children.Item2;
             }
