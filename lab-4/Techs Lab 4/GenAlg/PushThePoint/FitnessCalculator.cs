@@ -19,6 +19,9 @@ public class FitnessCalculator : IFitnessCalculator<Genome>
 
     public double Calculate(Genome genome)
     {
+        if (genome.FitnessCalculated)
+            return genome.Fitness;
+        
         var pos = new Vector2(0, 0);
         var v = new Vector2(0, 0);
 
@@ -55,7 +58,8 @@ public class FitnessCalculator : IFitnessCalculator<Genome>
 
             if (pos.X < 0 || 1 < pos.X || pos.Y < 0 || 1 < pos.Y)
             {
-                return -1000;
+                genome.SetFitness(-1000);
+                return genome.Fitness;
             }
 
             foreach (var circle in _config.circles)
@@ -63,16 +67,22 @@ public class FitnessCalculator : IFitnessCalculator<Genome>
                 var dx = pos.X - circle.X;
                 var dy = pos.Y - circle.Y;
                 if (Math.Sqrt(dx * dx + dy * dy) < circle.R)
-                    return -500;
+                {
+                    genome.SetFitness(-500);
+                    return genome.Fitness;
+                }
             }
 
             if ((pos - Vector2.One).Length() < 1E-6)
             {
-                return length - t;
+                genome.SetFitness(-length - t);
+                return genome.Fitness;
             }
         }
 
-        return -(pos - Vector2.One).Length();
+        
+        genome.SetFitness(-(pos - Vector2.One).Length());
+        return genome.Fitness;
     }
 
     public double MaxPossibleFitness()

@@ -1,4 +1,5 @@
 ﻿using System.Buffers;
+using System.Diagnostics;
 using GenAlg.Common;
 
 namespace GenAlg.PushThePoint;
@@ -9,6 +10,9 @@ public class Genome : IGenome<Genome>
     const int GenesLength = 200;
     public int Length => GenesLength;
 
+    public double Fitness;
+    public bool FitnessCalculated = false;
+    
     public Genome()
     {
         ActionsSequence = ArrayPool<GenomeAction>.Shared.Rent(GenesLength);
@@ -18,22 +22,27 @@ public class Genome : IGenome<Genome>
         }
     }
 
-    public Genome(GenomeAction[] actions)
+    public Genome(GenomeAction[] actions, double fitness, bool fitnessCalculated)
     {
         ActionsSequence = ArrayPool<GenomeAction>.Shared.Rent(GenesLength);
         for (var i = 0; i < GenesLength; i++)
         {
             ActionsSequence[i] = actions[i];
         }
+
+        Fitness = fitness;
+        FitnessCalculated = fitnessCalculated;
     }
 
     public Genome Clone()
     {
-        return new Genome(ActionsSequence);
+        return new Genome(ActionsSequence, Fitness, FitnessCalculated);
     }
 
     public (Genome, Genome) Cross(Genome other)
     {
+        FitnessCalculated = false;
+        other.FitnessCalculated = false;
         var s = Program.Random.Next(2, GenesLength - 3);
         if (s < GenesLength - s)
             for (var i = 0; i < s; i++)
@@ -47,6 +56,7 @@ public class Genome : IGenome<Genome>
 
     public Genome Mutate()
     {
+        FitnessCalculated = false;
         for (var i = 0; i < 5; i++)
         {
             var index = Program.Random.Next(0, GenesLength);
@@ -59,5 +69,11 @@ public class Genome : IGenome<Genome>
     public void Dispose()
     {
         ArrayPool<GenomeAction>.Shared.Return(ActionsSequence);
+    }
+
+    public void SetFitness(double fitness)
+    {
+        Fitness = fitness;
+        FitnessCalculated = true;
     }
 }
