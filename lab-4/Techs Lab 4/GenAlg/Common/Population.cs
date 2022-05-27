@@ -4,7 +4,7 @@ public class Population<TGenome, TFitnessCalculator>
     where TGenome : IGenome<TGenome>, new()
     where TFitnessCalculator : IFitnessCalculator<TGenome>, new()
 {
-    private TFitnessCalculator _fitnessCalculator = new();
+    private TFitnessCalculator _fitnessCalculator;
     private List<TGenome> _genomes;
     private readonly Random _random;
 
@@ -12,7 +12,13 @@ public class Population<TGenome, TFitnessCalculator>
     private TGenome? _best;
 
     public Population(Random random, int size)
+        : this(random, size, new TFitnessCalculator())
     {
+    }
+
+    public Population(Random random, int size, TFitnessCalculator fitnessCalculator)
+    {
+        _fitnessCalculator = fitnessCalculator;
         _random = random;
         _genomes = new List<TGenome>(size);
         for (var i = 0; i < size; i++)
@@ -23,7 +29,7 @@ public class Population<TGenome, TFitnessCalculator>
     {
         SelectionTournament(_genomes.Count);
     }
-    
+
     private void SelectionTournament(int size)
     {
         _stats = null;
@@ -51,7 +57,7 @@ public class Population<TGenome, TFitnessCalculator>
                 .Clone());
         }
     }
-    
+
     public void Crossover(double crossoverChance)
     {
         _stats = null;
@@ -127,6 +133,7 @@ public class Population<TGenome, TFitnessCalculator>
         {
             GetStats();
         }
+
         return _best!.Clone();
     }
 

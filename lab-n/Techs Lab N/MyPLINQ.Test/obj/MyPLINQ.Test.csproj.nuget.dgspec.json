@@ -1,0 +1,140 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Workspace\\University\\Semester 4\\Techs\\lab-n\\Techs Lab N\\MyPLINQ.Test\\MyPLINQ.Test.csproj": {}
+  },
+  "projects": {
+    "C:\\Workspace\\University\\Semester 4\\Techs\\lab-n\\Techs Lab N\\MyPLINQ.Test\\MyPLINQ.Test.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Workspace\\University\\Semester 4\\Techs\\lab-n\\Techs Lab N\\MyPLINQ.Test\\MyPLINQ.Test.csproj",
+        "projectName": "MyPLINQ.Test",
+        "projectPath": "C:\\Workspace\\University\\Semester 4\\Techs\\lab-n\\Techs Lab N\\MyPLINQ.Test\\MyPLINQ.Test.csproj",
+        "packagesPath": "C:\\Users\\study\\.nuget\\packages\\",
+        "outputPath": "C:\\Workspace\\University\\Semester 4\\Techs\\lab-n\\Techs Lab N\\MyPLINQ.Test\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\study\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Workspace\\Test Zone\\Rider\\Test Reference Links\\packages": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\Workspace\\University\\Semester 4\\Techs\\lab-n\\Techs Lab N\\MyPLINQ\\MyPLINQ.csproj": {
+                "projectPath": "C:\\Workspace\\University\\Semester 4\\Techs\\lab-n\\Techs Lab N\\MyPLINQ\\MyPLINQ.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "MSTest.TestAdapter": {
+              "target": "Package",
+              "version": "[2.2.7, )"
+            },
+            "MSTest.TestFramework": {
+              "target": "Package",
+              "version": "[2.2.7, )"
+            },
+            "Microsoft.NET.Test.Sdk": {
+              "target": "Package",
+              "version": "[16.11.0, )"
+            },
+            "coverlet.collector": {
+              "target": "Package",
+              "version": "[3.1.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Workspace\\University\\Semester 4\\Techs\\lab-n\\Techs Lab N\\MyPLINQ\\MyPLINQ.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Workspace\\University\\Semester 4\\Techs\\lab-n\\Techs Lab N\\MyPLINQ\\MyPLINQ.csproj",
+        "projectName": "MyPLINQ",
+        "projectPath": "C:\\Workspace\\University\\Semester 4\\Techs\\lab-n\\Techs Lab N\\MyPLINQ\\MyPLINQ.csproj",
+        "packagesPath": "C:\\Users\\study\\.nuget\\packages\\",
+        "outputPath": "C:\\Workspace\\University\\Semester 4\\Techs\\lab-n\\Techs Lab N\\MyPLINQ\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\study\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Workspace\\Test Zone\\Rider\\Test Reference Links\\packages": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

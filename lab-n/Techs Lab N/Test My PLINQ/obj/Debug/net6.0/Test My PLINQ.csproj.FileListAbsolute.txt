@@ -1,0 +1,28 @@
+C:\Workspace\University\Semester 4\Techs\lab-n\Techs Lab N\Test My PLINQ\bin\Debug\net6.0\Test My PLINQ.deps.json
+C:\Workspace\University\Semester 4\Techs\lab-n\Techs Lab N\Test My PLINQ\bin\Debug\net6.0\Test My PLINQ.dll
+C:\Workspace\University\Semester 4\Techs\lab-n\Techs Lab N\Test My PLINQ\bin\Debug\net6.0\Test My PLINQ.pdb
+C:\Workspace\University\Semester 4\Techs\lab-n\Techs Lab N\Test My PLINQ\obj\Debug\net6.0\Test My PLINQ.csproj.AssemblyReference.cache
+C:\Workspace\University\Semester 4\Techs\lab-n\Techs Lab N\Test My PLINQ\obj\Debug\net6.0\Test My PLINQ.GeneratedMSBuildEditorConfig.editorconfig
+C:\Workspace\University\Semester 4\Techs\lab-n\Techs Lab N\Test My PLINQ\obj\Debug\net6.0\Test My PLINQ.AssemblyInfoInputs.cache
+C:\Workspace\University\Semester 4\Techs\lab-n\Techs Lab N\Test My PLINQ\obj\Debug\net6.0\Test My PLINQ.AssemblyInfo.cs
+C:\Workspace\University\Semester 4\Techs\lab-n\Techs Lab N\Test My PLINQ\obj\Debug\net6.0\Test My PLINQ.csproj.CoreCompileInputs.cache
+C:\Workspace\University\Semester 4\Techs\lab-n\Techs Lab N\Test My PLINQ\obj\Debug\net6.0\Test My PLINQ.dll
+C:\Workspace\University\Semester 4\Techs\lab-n\Techs Lab N\Test My PLINQ\obj\Debug\net6.0\refint\Test My PLINQ.dll
+C:\Workspace\University\Semester 4\Techs\lab-n\Techs Lab N\Test My PLINQ\obj\Debug\net6.0\Test My PLINQ.pdb
+C:\Workspace\University\Semester 4\Techs\lab-n\Techs Lab N\Test My PLINQ\obj\Debug\net6.0\ref\Test My PLINQ.dll
+C:\Workspace\University\Semester 4\Techs\lab-n\Techs Lab N\Test My PLINQ\bin\Debug\net6.0\MyPLINQ.dll
+C:\Workspace\University\Semester 4\Techs\lab-n\Techs Lab N\Test My PLINQ\bin\Debug\net6.0\MyPLINQ.pdb
+C:\Workspace\University\Semester 4\Techs\lab-n\Techs Lab N\Test My PLINQ\obj\Debug\net6.0\Test My PLINQ.csproj.CopyComplete
+C:\Workspace\University\Semester 4\Techs\lab-n\Techs Lab N\Test My PLINQ\bin\Debug\net6.0\x86\KernelTraceControl.dll
+C:\Workspace\University\Semester 4\Techs\lab-n\Techs Lab N\Test My PLINQ\bin\Debug\net6.0\x86\KernelTraceControl.Win61.dll
+C:\Workspace\University\Semester 4\Techs\lab-n\Techs Lab N\Test My PLINQ\bin\Debug\net6.0\x86\msdia140.dll
+C:\Workspace\University\Semester 4\Techs\lab-n\Techs Lab N\Test My PLINQ\bin\Debug\net6.0\x86\msvcp140.dll
+C:\Workspace\University\Semester 4\Techs\lab-n\Techs Lab N\Test My PLINQ\bin\Debug\net6.0\x86\vcruntime140.dll
+C:\Workspace\University\Semester 4\Techs\lab-n\Techs Lab N\Test My PLINQ\bin\Debug\net6.0\amd64\KernelTraceControl.dll
+C:\Workspace\University\Semester 4\Techs\lab-n\Techs Lab N\Test My PLINQ\bin\Debug\net6.0\amd64\msdia140.dll
+C:\Workspace\University\Semester 4\Techs\lab-n\Techs Lab N\Test My PLINQ\bin\Debug\net6.0\amd64\msvcp140.dll
+C:\Workspace\University\Semester 4\Techs\lab-n\Techs Lab N\Test My PLINQ\bin\Debug\net6.0\amd64\vcruntime140.dll
+C:\Workspace\University\Semester 4\Techs\lab-n\Techs Lab N\Test My PLINQ\bin\Debug\net6.0\amd64\vcruntime140_1.dll
+C:\Workspace\University\Semester 4\Techs\lab-n\Techs Lab N\Test My PLINQ\bin\Debug\net6.0\TraceReloggerLib.dll
+C:\Workspace\University\Semester 4\Techs\lab-n\Techs Lab N\Test My PLINQ\bin\Debug\net6.0\Dia2Lib.dll
+C:\Workspace\University\Semester 4\Techs\lab-n\Techs Lab N\Test My PLINQ\bin\Debug\net6.0\OSExtensions.dll
