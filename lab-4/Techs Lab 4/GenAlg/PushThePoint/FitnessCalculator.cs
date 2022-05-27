@@ -27,7 +27,7 @@ public class FitnessCalculator : IFitnessCalculator<Genome>
 
         var sum = 0;
 
-        var length = genome.ActionsSequence.Length;
+        var length = genome.Length;
         for (var t = 0; t < length; t++)
         {
             var action = genome.ActionsSequence[t];

@@ -1,4 +1,6 @@
-﻿namespace GenAlg.Common;
+﻿using System.Buffers;
+
+namespace GenAlg.Common;
 
 public class Population<TGenome, TFitnessCalculator>
     where TGenome : IGenome<TGenome>, new()
@@ -21,7 +23,7 @@ public class Population<TGenome, TFitnessCalculator>
     {
         _fitnessCalculator = fitnessCalculator;
         _random = random;
-        _genomes = new TGenome[size];
+        _genomes = ArrayPool<TGenome>.Shared.Rent(size);
         _size = size;
         for (var i = 0; i < size; i++)
             _genomes[i] = new TGenome();
@@ -36,7 +38,7 @@ public class Population<TGenome, TFitnessCalculator>
     {
         _stats = null;
         var oldGen = _genomes;
-        _genomes = new TGenome[size];
+        _genomes = ArrayPool<TGenome>.Shared.Rent(size);
         for (var i = 0; i < size; i++)
         {
             int i1 = 0, i2 = 0, i3 = 0;
@@ -75,6 +77,7 @@ public class Population<TGenome, TFitnessCalculator>
         {
             oldGen[i].Dispose();
         }
+        ArrayPool<TGenome>.Shared.Return(oldGen);
 
         _size = size;
     }
