@@ -1,5 +1,4 @@
 ﻿using System.Buffers;
-using System.Diagnostics;
 using GenAlg.Common;
 
 namespace GenAlg.PushThePoint;
@@ -15,7 +14,7 @@ public class Genome : IGenome<Genome>
     
     public Genome()
     {
-        ActionsSequence = ArrayPool<GenomeAction>.Shared.Rent(GenesLength);
+        ActionsSequence = Program.ProgramArrayPool.Rent(GenesLength);
         for (var i = 0; i < GenesLength; i++)
         {
             ActionsSequence[i] = (GenomeAction)Program.Random.Next(5);
@@ -24,7 +23,7 @@ public class Genome : IGenome<Genome>
 
     public Genome(GenomeAction[] actions, double fitness, bool fitnessCalculated)
     {
-        ActionsSequence = ArrayPool<GenomeAction>.Shared.Rent(GenesLength);
+        ActionsSequence = Program.ProgramArrayPool.Rent(GenesLength);
         for (var i = 0; i < GenesLength; i++)
         {
             ActionsSequence[i] = actions[i];
@@ -68,7 +67,7 @@ public class Genome : IGenome<Genome>
 
     public void Dispose()
     {
-        ArrayPool<GenomeAction>.Shared.Return(ActionsSequence);
+        Program.ProgramArrayPool.Return(ActionsSequence);
     }
 
     public void SetFitness(double fitness)

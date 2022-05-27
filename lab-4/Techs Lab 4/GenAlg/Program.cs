@@ -1,4 +1,5 @@
-﻿using System.Text.Json;
+﻿using System.Buffers;
+using System.Text.Json;
 using System.Text.Json.Nodes;
 using GenAlg.Common;
 using GenAlg.Dto;
@@ -16,6 +17,8 @@ public static class Program
     private const int MaxGenerations = 500;
     private const double CrossoverP = 0.9;
     private const double MutationP = 0.1;
+
+    public static ArrayPool<GenomeAction> ProgramArrayPool = ArrayPool<GenomeAction>.Create(200, 2048);
 
     public static void Main(string[] args)
     {
