@@ -5,11 +5,12 @@ public class Population<TGenome, TFitnessCalculator>
     where TFitnessCalculator : IFitnessCalculator<TGenome>, new()
 {
     private TFitnessCalculator _fitnessCalculator;
-    private List<TGenome> _genomes;
+    private TGenome[] _genomes;
     private readonly Random _random;
 
     private PopulationStats? _stats;
     private TGenome? _best;
+    private readonly int _size;
 
     public Population(Random random, int size)
         : this(random, size, new TFitnessCalculator())
@@ -20,29 +21,32 @@ public class Population<TGenome, TFitnessCalculator>
     {
         _fitnessCalculator = fitnessCalculator;
         _random = random;
-        _genomes = new List<TGenome>(size);
+        _genomes = new TGenome[size];
+        _size = size;
         for (var i = 0; i < size; i++)
-            _genomes.Add(new TGenome());
+            // _genomes.Add(new TGenome());
+            _genomes[i] = new TGenome();
     }
 
     public void SelectionTournament()
     {
-        SelectionTournament(_genomes.Count);
+        SelectionTournament(_size);
     }
 
     private void SelectionTournament(int size)
     {
         _stats = null;
         var oldGen = _genomes;
-        _genomes = new List<TGenome>(size);
+        // _genomes = new List<TGenome>(size);
+        _genomes = new TGenome[_size];
         for (var i = 0; i < size; i++)
         {
             int i1 = 0, i2 = 0, i3 = 0;
             while (i1 == i2 || i1 == i3 || i2 == i3)
             {
-                i1 = _random.Next(oldGen.Count);
-                i2 = _random.Next(oldGen.Count);
-                i3 = _random.Next(oldGen.Count);
+                i1 = _random.Next(_size);
+                i2 = _random.Next(_size);
+                i3 = _random.Next(_size);
             }
 
             var triple = new[]
@@ -52,9 +56,9 @@ public class Population<TGenome, TFitnessCalculator>
                 oldGen[i3]
             };
 
-            _genomes.Add(triple
+            _genomes[i] = triple
                 .MaxBy(genome => _fitnessCalculator.Calculate(genome))!
-                .Clone());
+                .Clone();
         }
     }
 
@@ -62,40 +66,44 @@ public class Population<TGenome, TFitnessCalculator>
     {
         _stats = null;
 
-        var oldGen = _genomes;
-        _genomes = new List<TGenome>(_genomes.Count);
+        // var oldGen = _genomes;
+        // _genomes = new List<TGenome>(_genomes.Count);
 
-        for (var i = 1; i < oldGen.Count; i += 2)
+        for (var i = 1; i < _size; i += 2)
         {
             if (_random.NextDouble() < crossoverChance)
             {
-                var children = oldGen[i - 1].Cross(oldGen[i]);
-                _genomes.Add(children.Item1);
-                _genomes.Add(children.Item2);
+                var children = _genomes[i - 1].Cross( _genomes[i]);
+                // _genomes.Add(children.Item1);
+                // _genomes.Add(children.Item2);
+                _genomes[i - 1] = children.Item1;
+                _genomes[i] = children.Item2;
             }
-            else
-            {
-                _genomes.Add(oldGen[i - 1]);
-                _genomes.Add(oldGen[i]);
-            }
+            // else
+            // {
+            //     _genomes.Add(oldGen[i - 1]);
+            //     _genomes.Add(oldGen[i]);
+            // }
         }
 
-        if (oldGen.Count % 2 == 1)
-        {
-            _genomes.Add(oldGen.Last());
-        }
+        // if (oldGen.Count % 2 == 1)
+        // {
+        //     _genomes.Add(oldGen.Last());
+        // }
     }
 
     public void Mutate(double mutationChance)
     {
         _stats = null;
 
-        var oldGen = _genomes;
-        _genomes = new List<TGenome>(_genomes.Count);
+        // var oldGen = _genomes;
+        // _genomes = new List<TGenome>(_genomes.Count);
 
-        foreach (var oldGenome in oldGen)
+        for (var i = 0; i < _size; i++)
         {
-            _genomes.Add(_random.NextDouble() < mutationChance ? oldGenome.Mutate() : oldGenome);
+            // _genomes.Add( ? oldGenome.Mutate() : oldGenome);
+            if (_random.NextDouble() < mutationChance)
+                _genomes[i] = _genomes[i].Mutate();
         }
     }
 
@@ -123,7 +131,7 @@ public class Population<TGenome, TFitnessCalculator>
             fitnessSum += fitness;
         }
 
-        _stats = new PopulationStats(maxFitness, fitnessSum / _genomes.Count, minFitness, _genomes.Count);
+        _stats = new PopulationStats(maxFitness, fitnessSum / _size, minFitness, _size);
         return _stats;
     }
 

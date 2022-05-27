@@ -63,4 +63,8 @@ public class Genome : IGenome<Genome>
         
         return new Genome(ar.ToImmutableArray());
     }
+
+    public void Dispose()
+    {
+    }
 }

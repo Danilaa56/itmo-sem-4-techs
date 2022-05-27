@@ -1,6 +1,6 @@
 ﻿namespace GenAlg.Common;
 
-public interface IGenome<T> where T : IGenome<T>
+public interface IGenome<T> : IDisposable where T : IGenome<T>
 {
     T Clone();
     (T, T) Cross(T other);
